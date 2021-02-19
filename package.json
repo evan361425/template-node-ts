@@ -5,7 +5,7 @@
   "description": "Template for TypeScript in Node.js",
   "keywords": [
     "Node.js",
-    "typescript",
+    "TypeScript",
     "template"
   ],
   "homepage": "https://github.com/104corp/node-typescript-template#readme",
@@ -32,9 +32,8 @@
     }
   },
   "nyc": {
-    "exclude": [
-      "**/*.d.ts",
-      "test/**"
+    "include": [
+      "src/**"
     ],
     "extension": [
       ".ts"
@@ -65,7 +64,7 @@
     "npm-package-json-lint-config-default": "^3.0.0",
     "nyc": "^15.1.0",
     "sort-package-json": "^1",
-    "source-map-support": "0.5.19",
+    "source-map-support": "^0.5.19",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.7"
   },
