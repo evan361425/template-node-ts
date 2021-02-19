@@ -1,0 +1,48 @@
+{
+  "name": "node-typescript-template",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Template for TypeScript in Node.js",
+  "keywords": [
+    "Node.js",
+    "typescript",
+    "template"
+  ],
+  "homepage": "https://github.com/104corp/node-typescript-template#readme",
+  "bugs": {
+    "url": "https://github.com/104corp/node-typescript-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/104corp/node-typescript-template.git"
+  },
+  "license": "SEE LICENSE IN LICENSE file",
+  "author": "Shueh Chou Lu <evan.lu@104.com.tw>",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.ts' && npx sort-package-json package.json && npmPkgJsonLint -q ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "git secrets --scan"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4",
+    "@typescript-eslint/parser": "^4",
+    "eslint": "^7",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4",
+    "npm-package-json-lint": "^5.1.0",
+    "npm-package-json-lint-config-default": "^3.0.0",
+    "sort-package-json": "^1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.7"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
