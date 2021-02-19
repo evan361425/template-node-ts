@@ -20,25 +20,52 @@
   "author": "Shueh Chou Lu <evan.lu@104.com.tw>",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "lint": "eslint 'src/**/*.ts' && npx sort-package-json package.json && npmPkgJsonLint -q ."
+    "precompile": "rimraf src/**/*.js test/**/*.js",
+    "compile": "tsc",
+    "pretest": "rimraf src/**/*.js test/**/*.js",
+    "test": "nyc mocha",
+    "lint": "eslint 'src/**/*.ts' 'test/**/*.ts' && npx sort-package-json package.json && npmPkgJsonLint -q ."
   },
   "husky": {
     "hooks": {
       "pre-commit": "git secrets --scan"
     }
   },
+  "nyc": {
+    "exclude": [
+      "**/*.d.ts",
+      "test/**"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.1",
+    "@types/node": "^14.14.28",
     "@typescript-eslint/eslint-plugin": "^4",
     "@typescript-eslint/parser": "^4",
+    "chai": "^4.3.0",
     "eslint": "^7",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-security": "^1.4.0",
     "husky": "^4",
+    "mocha": "^8.3.0",
     "npm-package-json-lint": "^5.1.0",
     "npm-package-json-lint-config-default": "^3.0.0",
+    "nyc": "^15.1.0",
     "sort-package-json": "^1",
+    "source-map-support": "0.5.19",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.7"
   },
