@@ -1,7 +1,8 @@
 {
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -15,17 +16,8 @@
     "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      {
-        "argsIgnorePattern": "^_"
-      }
+      { "argsIgnorePattern": "^_" }
     ],
-    "eqeqeq": "error",
-    "indent": ["error", 2],
-    "jasmine/no-unsafe-spy": 0,
-    "no-console": "error",
-    "no-shadow": "off",
-    "object-curly-spacing": ["error", "always"],
-    "radix": "error",
-    "require-jsdoc": "off"
+    "eqeqeq": "warn"
   }
 }

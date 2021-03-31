@@ -1,5 +1,5 @@
 {
   "endOfLine": "auto",
-  "quoteProps": "preserver",
+  "quoteProps": "preserve",
   "trailingComma": "all"
 }
