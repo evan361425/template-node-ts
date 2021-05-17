@@ -1,9 +1,9 @@
 name: 'CI'
-on: # rebuild any PRs and main branch changes
+on: # rebuild any PRs and master branch changes
   pull_request:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build: # make sure build/ci work properly
