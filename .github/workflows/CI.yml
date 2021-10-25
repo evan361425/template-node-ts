@@ -1,4 +1,4 @@
-name: 'CI'
+name: "CI"
 on: # rebuild any PRs and master branch changes
   pull_request:
   push:
@@ -12,5 +12,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           npm install
-      - run: |
           npm run all
