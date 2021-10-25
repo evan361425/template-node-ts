@@ -4,16 +4,16 @@
   "private": true,
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/104corp/node-typescript-template#readme",
+  "homepage": "https://github.com/evan361425/template-node-ts#readme",
   "bugs": {
-    "url": "https://github.com/104corp/node-typescript-template/issues"
+    "url": "https://github.com/evan361425/template-node-ts/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/104corp/node-typescript-template.git"
+    "url": "git+https://github.com/evan361425/template-node-ts.git"
   },
   "license": "SEE LICENSE IN LICENSE file",
-  "author": "Shueh Chou Lu <evan.lu@104.com.tw>",
+  "author": "Shueh Chou Lu <evanlu361425@gmail.com>",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist/**/*.js dist/**/*.ts",
