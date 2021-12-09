@@ -51,7 +51,7 @@
     "chai": "^4",
     "eslint": "^8",
     "eslint-config-prettier": "^8",
-    "eslint-plugin-mocha": "^9",
+    "eslint-plugin-mocha": "^10",
     "eslint-plugin-prettier": "^4",
     "husky": "^7",
     "mocha": "^9",
