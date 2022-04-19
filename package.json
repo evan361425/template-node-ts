@@ -14,7 +14,7 @@
   },
   "license": "SEE LICENSE IN LICENSE file",
   "author": "Shueh Chou Lu <evanlu361425@gmail.com>",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf dist/**/*.js dist/**/*.ts",
     "precompile": "npm run clean",
@@ -22,20 +22,17 @@
     "format": "prettier --write **/*.ts",
     "test": "mocha",
     "pretest-coverage": "npm run clean",
-    "test-coverage": "nyc mocha",
+    "test-coverage": "nyc --report-dir coverage --reporter html mocha",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-    "all": "npm run compile && npm run format && npm run lint && npm test"
+    "all": "npm run format && npm run lint && npm test && npm run compile"
   },
   "nyc": {
+    "all": true,
     "extension": [
       ".ts"
     ],
     "include": [
       "src/**"
-    ],
-    "reporter": [
-      "html",
-      "text"
     ],
     "require": [
       "ts-node/register"
@@ -45,7 +42,7 @@
   "devDependencies": {
     "@types/chai": "^4",
     "@types/mocha": "^9",
-    "@types/node": "^16",
+    "@types/node": "^17",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "chai": "^4",
