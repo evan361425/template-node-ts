@@ -1,16 +1,9 @@
 {
-  "name": "node-typescript-template",
-  "version": "0.0.0",
-  "private": true,
-  "description": "",
+  "name": "node-{TODO}",
   "keywords": [],
-  "homepage": "https://github.com/evan361425/template-node-ts#readme",
-  "bugs": {
-    "url": "https://github.com/evan361425/template-node-ts/issues"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evan361425/template-node-ts.git"
+    "url": "git+https://github.com/evan361425/{TODO}.git"
   },
   "license": "SEE LICENSE IN LICENSE file",
   "author": "Shueh Chou Lu <evanlu361425@gmail.com>",
@@ -25,18 +18,6 @@
     "test-coverage": "nyc --report-dir coverage --reporter html mocha",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
     "all": "npm run format && npm run lint && npm test && npm run compile"
-  },
-  "nyc": {
-    "all": true,
-    "extension": [
-      ".ts"
-    ],
-    "include": [
-      "src/**"
-    ],
-    "require": [
-      "ts-node/register"
-    ]
   },
   "dependencies": {},
   "devDependencies": {
@@ -60,5 +41,17 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "nyc": {
+    "all": true,
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
