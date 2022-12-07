@@ -6,18 +6,22 @@
     "url": "git+https://github.com/evan361425/{TODO}.git"
   },
   "license": "SEE LICENSE IN LICENSE file",
-  "author": "Shueh Chou Lu <evanlu361425@gmail.com>",
-  "main": "dist/index.js",
+  "authors": [
+    "Shueh Chou Lu <evanlu361425@gmail.com>"
+  ],
+  "type": "module",
+  "exports": "./dist/index.js",
   "scripts": {
-    "clean": "rimraf dist/**/*.js dist/**/*.ts",
-    "precompile": "npm run clean",
-    "compile": "tsc --project tsconfig.production.json",
+    "clean": "rm -rf dist/**/*.js dist/**/*.ts coverage",
+    "prebuild": "npm run clean",
+    "build": "tsc --project tsconfig.production.json",
+    "build:dev": "tsc -w",
     "format": "prettier --write **/*.ts",
     "test": "mocha",
-    "pretest-coverage": "npm run clean",
-    "test-coverage": "nyc --report-dir coverage --reporter html mocha",
+    "pretest:cov": "npm run clean",
+    "test:cov": "c8 mocha",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-    "all": "npm run format && npm run lint && npm test && npm run compile"
+    "all": "npm run format && npm run lint && npm test && npm run build"
   },
   "dependencies": {},
   "devDependencies": {
@@ -33,7 +37,7 @@
     "eslint-plugin-prettier": "^4",
     "husky": "^8",
     "mocha": "^10",
-    "nyc": "^15",
+    "c8": "^7",
     "prettier": "^2",
     "source-map-support": "^0.5",
     "ts-node": "^10",
