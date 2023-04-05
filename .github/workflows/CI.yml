@@ -15,7 +15,7 @@ jobs:
       - name: Set up environment
         uses: actions/setup-node@v3
         with:
-          node-version: 14
-      
+          node-version: 18
+
       - name: Test
-        run: npm i && npm run ci
+        run: npm i && npm run all
