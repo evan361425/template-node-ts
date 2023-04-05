@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["es2021"],
+    "lib": ["es2022"],
     "module": "es2022",
-    "target": "es2021",
+    "target": "es2022",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -17,9 +17,9 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "importsNotUsedAsValues": "error",
     "checkJs": true,
     "sourceMap": true,
+    "verbatimModuleSyntax": true,
     "outDir": "./dist/"
   },
   "ts-node": {

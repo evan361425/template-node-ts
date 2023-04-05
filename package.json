@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/evan361425/{TODO}.git"
   },
-  "license": "SEE LICENSE IN LICENSE file",
+  "license": "See license in LICENSE file",
   "authors": [
     "Shueh Chou Lu <evanlu361425@gmail.com>"
   ],
@@ -21,30 +21,30 @@
     "pretest:cov": "npm run clean",
     "test:cov": "c8 mocha",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-    "all": "npm run format && npm run lint && npm test && npm run build"
+    "all": "npm run format && npm run lint && npm run test && npm run build"
   },
   "dependencies": {},
   "devDependencies": {
+    "@evan361425/version-bumper": "^0.13.0",
     "@types/chai": "^4",
     "@types/mocha": "^10",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
+    "c8": "^7",
     "chai": "^4",
     "eslint": "^8",
     "eslint-config-prettier": "^8",
     "eslint-plugin-mocha": "^10",
     "eslint-plugin-prettier": "^4",
-    "husky": "^8",
     "mocha": "^10",
-    "c8": "^7",
     "prettier": "^2",
     "source-map-support": "^0.5",
     "ts-node": "^10",
-    "typescript": "^4"
+    "typescript": "^5"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "nyc": {
     "all": true,
