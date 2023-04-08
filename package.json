@@ -20,10 +20,10 @@
 		"test": "mocha",
 		"pretest:cov": "npm run clean",
 		"test:cov": "c8 mocha",
+		"prelint": "prettier --check **/*.ts",
 		"lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-		"all": "npm run format && npm run lint && npm run test && npm run build"
+		"all": "npm run lint && npm run test && npm run build"
 	},
-	"dependencies": {},
 	"devDependencies": {
 		"@evan361425/version-bumper": "^0.13.0",
 		"@types/chai": "^4",
@@ -45,17 +45,5 @@
 	},
 	"engines": {
 		"node": ">=18"
-	},
-	"nyc": {
-		"all": true,
-		"extension": [
-			".ts"
-		],
-		"include": [
-			"src/**"
-		],
-		"require": [
-			"ts-node/register"
-		]
 	}
 }
