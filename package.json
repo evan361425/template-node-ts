@@ -28,7 +28,7 @@
 		"@evan361425/version-bumper": "^0.13.0",
 		"@types/chai": "^4",
 		"@types/mocha": "^10",
-		"@types/node": "^18",
+		"@types/node": "^20",
 		"@typescript-eslint/eslint-plugin": "^5",
 		"@typescript-eslint/parser": "^5",
 		"c8": "^7",
