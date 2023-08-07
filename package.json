@@ -34,7 +34,7 @@
 		"c8": "^7",
 		"chai": "^4",
 		"eslint": "^8",
-		"eslint-config-prettier": "^8",
+		"eslint-config-prettier": "^9",
 		"eslint-plugin-mocha": "^10",
 		"eslint-plugin-prettier": "^4",
 		"mocha": "^10",
