@@ -38,7 +38,7 @@
 		"eslint-plugin-mocha": "^10",
 		"eslint-plugin-prettier": "^4",
 		"mocha": "^10",
-		"prettier": "^2",
+		"prettier": "^3",
 		"source-map-support": "^0.5",
 		"ts-node": "^10",
 		"typescript": "^5"
