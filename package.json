@@ -1,49 +1,49 @@
 {
-	"name": "node-template",
-	"keywords": [],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/evan361425/{TODO}.git"
-	},
-	"license": "See license in LICENSE file",
-	"authors": [
-		"Shueh Chou Lu <evanlu361425@gmail.com>"
-	],
-	"type": "module",
-	"types": "./dist/index.d.ts",
-	"exports": "./dist/index.js",
-	"scripts": {
-		"clean": "rm -rf dist/**/*.js dist/**/*.js.map dist/**/*.ts coverage",
-		"prebuild": "npm run clean",
-		"build": "tsc --project tsconfig.production.json",
-		"build:dev": "tsc -w",
-		"format": "prettier --write **/*.ts",
-		"test": "mocha",
-		"pretest:cov": "npm run clean",
-		"test:cov": "c8 mocha",
-		"prelint": "prettier --check **/*.ts",
-		"lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-		"all": "npm run lint && npm run test && npm run build"
-	},
-	"devDependencies": {
-		"@evan361425/version-bumper": "^0.13.0",
-		"@types/chai": "^4",
-		"@types/mocha": "^10",
-		"@types/node": "^20",
-		"@typescript-eslint/eslint-plugin": "^7",
-		"@typescript-eslint/parser": "^7",
-		"c8": "^9",
-		"chai": "^5.0",
-		"eslint": "^8",
-		"eslint-config-prettier": "^9",
-		"eslint-plugin-mocha": "^10",
-		"eslint-plugin-prettier": "^5",
-		"mocha": "^10.2",
-		"prettier": "^3",
-		"ts-node": "^10",
-		"typescript": "^5"
-	},
-	"engines": {
-		"node": ">=18"
-	}
+  "name": "node-template",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evan361425/{TODO}.git"
+  },
+  "license": "See license in LICENSE file",
+  "authors": [
+    "Shueh Chou Lu <evanlu361425@gmail.com>"
+  ],
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": "./dist/index.js",
+  "scripts": {
+    "clean": "rm -rf dist/**/*.js dist/**/*.js.map dist/**/*.ts coverage",
+    "prebuild": "npm run clean",
+    "build": "tsc --project tsconfig.production.json",
+    "build:dev": "tsc -w",
+    "format": "prettier --write **/*.ts",
+    "test": "mocha",
+    "pretest:cov": "npm run clean",
+    "test:cov": "c8 mocha",
+    "prelint": "prettier --check **/*.ts",
+    "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
+    "all": "npm run lint && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@evan361425/version-bumper": "^0.13.0",
+    "@types/chai": "^4",
+    "@types/mocha": "^10",
+    "@types/node": "^20",
+    "@typescript-eslint/eslint-plugin": "^7",
+    "@typescript-eslint/parser": "^7",
+    "c8": "^9",
+    "chai": "^5.0",
+    "eslint": "^8",
+    "eslint-config-prettier": "^9",
+    "eslint-plugin-mocha": "^10",
+    "eslint-plugin-prettier": "^5",
+    "mocha": "^10.2",
+    "prettier": "^3",
+    "ts-node": "^10",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }
