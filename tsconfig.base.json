@@ -5,11 +5,12 @@
 		"target": "es2022",
 		"moduleResolution": "node",
 		"outDir": "./dist/",
+    "typeRoots": ["@types"],
 
 		"strict": true,
 		"allowUnusedLabels": false,
 		"allowUnreachableCode": false,
-		// "exactOptionalPropertyTypes": true,
+		"exactOptionalPropertyTypes": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
@@ -18,7 +19,6 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 
-		"verbatimModuleSyntax": true,
 		"checkJs": true,
 
 		"esModuleInterop": true,
