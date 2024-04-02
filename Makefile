@@ -61,9 +61,10 @@ build-version: ## Bump the version
 
 ##@ Dev
 
+# TODO: should edit for your project if you have any private dependencies
 .PHONY: install
 install: ## Install all dependencies
-	printf "@$(OWNER):registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=${token}" > .npmrc
+	printf "@private:registry=https://npm.pkg.github.com\n//npm.pkg.github.com/:_authToken=${token}" > .npmrc
 	npm install --ignore-scripts
 
 .PHONY: install-prod
