@@ -46,13 +46,14 @@ build-assets: build-ts ## Build assets
 
 .PHONY: build-version
 build-version: ## Bump the version
-	@read -p "Enter new version: " target; \
+	@current=$$(echo '$(version)' | cut -c 2-); \
+	read -p "Enter new version(origin version $$current): " target; \
 	if [[ ! $$target =~ ^[0-9]+\.[0-9]+\.[0-9]+$$ ]]; then \
 		echo "Version must be in x.x.x format"; \
 		exit 1; \
 	fi; \
-	if [[ $$(echo -e "$$target\n$(version)" | sort -V | head -n1) == $$target ]]; then \
-		echo "Version must be above $(version)"; \
+	if [[ $$(echo -e "$$target\n$$current" | sort -V | head -n1) == $$target ]]; then \
+		echo "Version must be above $$current"; \
 		exit 1; \
 	fi; \
 	make build-assets; \
