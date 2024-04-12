@@ -44,8 +44,8 @@ build-assets: build-ts ## Build assets
 	make help | sed -r "s/\x1B\[(36|0|1)m//g" >> docs/commands.md
 	printf '```\n' >> docs/commands.md
 
-.PHONY: build-version
-build-version: ## Bump the version
+.PHONY: bump
+bump: dep-bumper ## Bump the version
 	@current=$$(echo '$(version)' | cut -c 2-); \
 	read -p "Enter new version(origin version $$current): " target; \
 	if [[ ! $$target =~ ^[0-9]+\.[0-9]+\.[0-9]+$$ ]]; then \
@@ -144,3 +144,9 @@ clean: ## Clean all build files
 .PHONY: clean-mock
 clean-mock: ## Clean mock servers
 	docker stop mock-redis || true
+
+##@ Dep
+
+.PHONY: dep-bumper
+dep-bumper: ## Check bumper installed
+	@command -v bumper >/dev/null || npm install -g @evan361425/version-bumper
