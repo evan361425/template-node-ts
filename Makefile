@@ -104,33 +104,33 @@ test: ## Run tests by Node.js test runner
 test-only: ## Run tests with only statement
 	node --import tsx --test-only --test --test-timeout 60000 test/**/*.spec.ts
 
+# Should add exit flag https://github.com/nodejs/node/issues/49925
 .PHONY: test-integration
 test-integration: mock ## Run tests with dependencies
-	# Should add exit flag https://github.com/nodejs/node/issues/49925
 	node --import tsx --test --test-timeout 60000 test/**/*.spec.ts test_integration/*.spec.ts
 
 .PHONY: test-ci
 test-ci: clean mock ## Run tests for CI
-	mkdir -p coverage
-	npx tsc # compile files
-	if ! node --test --experimental-test-coverage --test-timeout 60000 --test-reporter=spec \
-		dist/test/**/*.spec.js dist/test_integration/*.spec.js; then \
-		node --test dist/test/**/*.spec.js dist/test_integration/*.spec.js; \
-	fi
+	@mkdir -p coverage
+	@npx tsc # compile files
+	@node --test --experimental-test-coverage --test-timeout 60000 --test-reporter=spec \
+		dist/test/**/*.spec.js dist/test_integration/*.spec.js
 
 .PHONY: test-coverage
-test-coverage: clean mock ## Run tests with coverage and re-run without coverage if failed (to show error message)
-	mkdir -p coverage
-	npx tsc # compile files
+test-coverage: dep-lcov clean mock ## Run tests with coverage and re-run without coverage if failed (to show error message)
+	@mkdir -p coverage
+	@npx tsc # compile files
 	if ! node --test --experimental-test-coverage --test-timeout 60000 \
 		--test-reporter=lcov --test-reporter-destination=coverage/lcov.info \
 		dist/test/**/*.spec.js dist/test_integration/*.spec.js; then \
 		node --test dist/test/**/*.spec.js dist/test_integration/*.spec.js; \
 	fi
-	lcov --remove coverage/lcov.info -o coverage/lcov.filtered.info \
-		'test/*' 'test_integration/*' 'src/third-party/*' | grep -v 'Excluding dist'
-	genhtml coverage/lcov.filtered.info -o coverage/html > /dev/null
-	open coverage/html/index.html
+	@if which lcov > /dev/null; then \
+		lcov --remove coverage/lcov.info -o coverage/lcov.filtered.info \
+			'test/*' 'test_integration/*' | grep -v 'Excluding dist'; \
+		genhtml coverage/lcov.filtered.info -o coverage/html > /dev/null; \
+		open coverage/html/index.html; \
+	fi
 
 # TODO: should edit for your project if needed (e.g. mock server)
 .PHONY: mock
@@ -145,8 +145,12 @@ clean: ## Clean all build files
 clean-mock: ## Clean mock servers
 	docker stop mock-redis || true
 
-##@ Dep
+##@ Dependencies
 
 .PHONY: dep-bumper
 dep-bumper: ## Check bumper installed
 	@command -v bumper >/dev/null || npm install -g @evan361425/version-bumper
+
+.PHONY: dep-lcov
+dep-lcov: ## Check lcov installed
+	@command -v lcov >/dev/null || echo "Please install lcov: `brew install lcov`"
