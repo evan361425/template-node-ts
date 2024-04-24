@@ -45,7 +45,7 @@ build-assets: build-ts ## Build assets
 	printf '```\n' >> docs/commands.md
 
 .PHONY: bump
-bump: dep-bumper ## Bump the version
+bump: install-bumper ## Bump the version
 	@current=$$(echo '$(version)' | cut -c 2-); \
 	read -p "Enter new version(origin version $$current): " target; \
 	if [[ ! $$target =~ ^[0-9]+\.[0-9]+\.[0-9]+$$ ]]; then \
@@ -58,7 +58,15 @@ bump: dep-bumper ## Bump the version
 	fi; \
 	make build-assets; \
 	npm version --no-commit-hooks --no-git-tag-version $$target; \
-	bumper --latestVersion=v$$target
+	bumper --latestVersion=v$$target \
+		--repoLink https://github.com/$(OWNER)/$(PACKAGE) \
+		--tagNames production \
+		--tagPatterns 'v[0-9]+.[0-9]+.[0-9]+' \
+		--tagChangelog 'true' \
+		--releaseEnable 'true' \
+		--latestDiffEnable 'true' \
+		--latestDiffAllowed '^fix:,^feat:' \
+		--changelogTemplate '{content}'
 
 ##@ Dev
 
@@ -117,7 +125,7 @@ test-ci: clean mock ## Run tests for CI
 		dist/test/**/*.spec.js dist/test_integration/*.spec.js
 
 .PHONY: test-coverage
-test-coverage: dep-lcov clean mock ## Run tests with coverage and re-run without coverage if failed (to show error message)
+test-coverage: install-lcov clean mock ## Run tests with coverage and re-run without coverage if failed (to show error message)
 	@mkdir -p coverage
 	@npx tsc # compile files
 	if ! node --test --experimental-test-coverage --test-timeout 60000 \
@@ -147,10 +155,10 @@ clean-mock: ## Clean mock servers
 
 ##@ Dependencies
 
-.PHONY: dep-bumper
-dep-bumper: ## Check bumper installed
+.PHONY: install-bumper
+install-bumper: ## Check bumper installed
 	@command -v bumper >/dev/null || npm install -g @evan361425/version-bumper
 
-.PHONY: dep-lcov
-dep-lcov: ## Check lcov installed
+.PHONY: install-lcov
+install-lcov: ## Check lcov installed
 	@command -v lcov >/dev/null || echo "Please install lcov: `brew install lcov`"
