@@ -6,7 +6,6 @@ Template for TypeScript in Node.js.
 > You should edit two variables: `OWNER` and `PACKAGE`.
 >
 > -   [package.json](./package.json)
-> -   [bumper.json](./bumper.json)
 > -   [Makefile](./Makefile)
 
 Features:
